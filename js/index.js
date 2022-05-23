@@ -59,15 +59,15 @@
 // const arr = [5, 12, 2, 7, 6, 9, 19, 25, 4, 1, 3];
 
 // function bubbleSort(arr) {
+
 //   for(let i = 0; i < arr.length; i++) {
 //     for(let j = 0; j < arr.length - 1; j++) {
 //       if(arr[j] > arr[j + 1]) {
-//         let result = arr[j + 1] ;
-//         arr[j + 1] = arr[j];
-//         arr[j] = result; 
+//         [arr[j + 1], arr[j]] = [arr[j], arr[j+1]];
 //       }
 //     }
 //   }
+
 //   return arr;
 // }
 
@@ -158,14 +158,7 @@
 // let arr = ([1, 2, 2, 3], [101, 2, 1, 10], [1, 2, 3, 101,10]);
 
 // function union(arr) {
-//   let result = [];
-
-//   for(let values of arr) {
-//     if(!result.includes(values)) {
-//       result.push(values);
-//     }
-//   }
-
+//   let result = [...new Set(arr)];
 //   return result;
 // }
 
@@ -181,6 +174,7 @@ function createMatrix(rows, columns) {
     mainArray[i] = [];
     for(let j = 0; j < columns; j++) {
       mainArray[i][j] = (Math.floor(Math.random() * 100) + 1); 
+      mainArray.push();
     }
   }
 
