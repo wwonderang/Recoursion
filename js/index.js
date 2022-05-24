@@ -168,17 +168,42 @@
 // матрицы и возвращающее матрицу(массив массивов), заполненную случайными 
 // числами в диапозоне от 0 до 100.
 
-function createMatrix(rows, columns) {
-  let mainArray = [];
-  for(let i = 0; i < rows; i++) {
-    mainArray[i] = [];
-    for(let j = 0; j < columns; j++) {
-      mainArray[i][j] = (Math.floor(Math.random() * 100) + 1); 
-      mainArray.push();
+// function createMatrix(rows, columns) {
+//   let mainArray = [];
+//   for(let i = 0; i < rows; i++) {
+//     mainArray[i] = [];
+//     for(let j = 0; j < columns; j++) {
+//       mainArray[i][j] = (Math.floor(Math.random() * 100) + 1); 
+//       mainArray.push();
+//     }
+//   }
+
+//   return mainArray;
+// } 
+
+// console.log(createMatrix(3,3));
+
+// Flatten. Напишите функцию, которая преобразует глубокий массив в одномерный. 
+// Пожалуйста, не используйте array.flat(), чтобы сделать задачу интереснее. (рекурсия)
+
+//   * Описание задачи: Напишите функцию, которая преобразует глубокий массив в одномерный.
+//   * Ожидаемый результат: [1, 2, [3, 4, [5]]] => [1, 2, 3, 4, 5]
+//   * Сложность задачи: 3 of 5
+//   * @param {Array} array - Глубокий массив
+//   * @returns {Array}
+
+const flatten = (arr) => {
+  let result = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(!Array.isArray(arr[i])) {
+      result.push(arr[i]);
+    } else {
+      result = result.concat(flatten(arr[i]));
     }
   }
+  return result;
+ };
 
-  return mainArray;
-} 
+const data = [1, 2, [3, 4, [5]]];
+console.log(flatten(data)); // [1, 2, 3, 4, 5]
 
-console.log(createMatrix(3,3));
